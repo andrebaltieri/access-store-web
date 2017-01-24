@@ -1,0 +1,90 @@
+<html>
+
+<head>
+    <title>Access Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+</head>
+
+<body ng-app="app">
+
+    <div class="container" ng-controller="homeCtrl">
+        {{ title }}
+        <br>
+        <input class="form-control" type="text" ng-model="title"><br>
+        <input type="checkbox" ng-model="keepSignedIn"><br>
+        <br>
+        <button class="btn btn-primary" ng-click="toggle()">Alterar</button><br>
+        <br>
+        <div class="alert alert-info" ng-if="keepSignedIn">
+            Você permanecerá logado
+        </div>
+        <br>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th class="text-center">#</th>
+                    <th class="text-center">Nome</th>
+                    <th class="text-center">Preço</th>
+                    <th class="text-center"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in items">
+                    <td class="text-center">{{ item.id }}</td>
+                    <td class="text-center">{{ item.title }}</td>
+                    <td class="text-center">{{ item.price | currency: 'R$' }}</td>
+                    <td class="text-center">
+                        <button class="btn btn-sm" ng-click="removeItem($index)"><i class="fa fa-remove"></i></button>
+                        <button class="btn btn-sm"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-sm"><i class="fa fa-list-alt"></i></button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td class="text-center"></td>
+                    <td class="text-center"><input type="text" ng-model="title"></td>
+                    <td class="text-center"><input type="number" ng-model="price"></td>
+                    <td class="text-center"><button class="btn btn-success" ng-click="addItem()"><i class="fa fa-plus"></i></button></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script>
+        angular.module('app', []);
+        angular.module('app').controller('homeCtrl', function ($scope) {
+            $scope.title = '';
+            $scope.price = 0;
+            $scope.keepSignedIn = true;
+
+            $scope.toggle = function () {
+                if ($scope.keepSignedIn == true) {
+                    $scope.keepSignedIn = false;
+                } else if ($scope.keepSignedIn == false) {
+                    $scope.keepSignedIn = true;
+                }
+            }
+            $scope.items = [
+                { id: 1, title: 'Mouse Game', price: 299 },
+                { id: 2, title: 'Teclado Game', price: 699 },
+                { id: 3, title: 'Mouse Pad Game', price: 199 },
+                { id: 4, title: 'Fone de Ouvido Game', price: 499 }
+            ];
+            $scope.addItem = function () {
+                $scope.items.push({ id: $scope.items.length + 1, title: $scope.title, price: $scope.price });
+                $scope.title = '';
+                $scope.price = 0;
+            };
+
+            $scope.removeItem = function (index) {
+                $scope.items.splice(index, 1);
+            }
+        });
+    </script>
+</body>
+
+</html>
