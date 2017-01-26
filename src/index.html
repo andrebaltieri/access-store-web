@@ -1,0 +1,45 @@
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control: max-age=3600, must-revalidate"/>
+    <meta name="description" content="Access Store">
+    <title>Access Store</title>
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../node_modules/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="../node_modules/animate.css/animate.min.css">
+    <link rel="stylesheet" href="../node_modules/toastr/build/toastr.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div ng-include="'pages/navbar.html'"></div>
+    <div ng-view></div>
+
+    <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="../node_modules/angular/angular.js"></script>
+    <script src="../node_modules/angular-route/angular-route.js"></script>
+    <script src="../node_modules/toastr/build/toastr.min.js"></script>
+
+    <script src="app/modules.js"></script>
+    <script src="app/routes.js"></script>
+    <script src="app/settings.js"></script>
+    <script src="app/startup.js"></script>
+
+    <script src="app/services/data-service.js"></script>    
+
+    <script src="app/controllers/home-ctrl.js"></script>    
+    <script src="app/controllers/login-ctrl.js"></script>    
+    <script src="app/controllers/logout-ctrl.js"></script>    
+    <script src="app/controllers/product-list-ctrl.js"></script>    
+    <script src="app/controllers/cart-ctrl.js"></script>    
+    <script src="app/controllers/checkout-ctrl.js"></script>    
+    <script src="app/controllers/orders-ctrl.js"></script>    
+
+    <script src="app/directives/status-directive.js"></script>    
+</body>
+</html>

@@ -1,0 +1,27 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                aria-expanded="false">
+                <span class="sr-only">Menu</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/">Access Store</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li><a href="#!/">Home</a></li>
+                <li><a href="#!/products">Produtos</a></li>
+                <li><a href="#!/cart">Carrinho <span class="badge" ng-if="cart.length > 0">{{ cart.length }}</span></a></li>
+                <li><a href="#!/orders" ng-if="token">Meus Pedidos</a></li>                
+            </ul>
+            
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#!/login" ng-if="!token">Login</a></li>
+                <li><a href="#!/logout" ng-if="token">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

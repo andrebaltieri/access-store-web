@@ -1,0 +1,24 @@
+<br><br>
+
+<h1 class="text-center" ng-if="!vm.orders"><i class="fa fa-4x fa-spin fa-spinner"></i></h1>
+
+<div class="container" ng-if="vm.orders">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="text-center">Pedido</th>
+                <th class="text-center">Data</th>
+                <th class="text-center">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="order in vm.orders">
+                <td class="text-center">{{order.number}}</td>
+                <td class="text-center">{{order.createDate | date: 'dd/MM/yyyy'}}</td>
+                <td class="text-center">
+                    <status code="order.status"></status>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,23 @@
+<br><br>
+
+<h1 class="text-center" ng-if="!vm.products"><i class="fa fa-4x fa-spin fa-spinner"></i></h1>
+
+<div class="container" ng-if="vm.products">
+    <input type="text" class="form-control input-lg" placeholder="Filtrar..." ng-model="filter">
+    <select class="form-control input-lg" ng-model="vm.orderBy">
+        <option value="+title">ASC</option>
+        <option value="-title">DESC</option>
+    </select>
+    <div class="col-md-3" ng-repeat="product in vm.products | filter: filter | orderBy: vm.orderBy">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <img src="http://lorempixel.com/200/200/food/" class="img img-responsive" alt="Teste">
+            </div>
+            <div class="panel-body text-center">
+                {{ product.title | uppercase }}
+                <h3>{{ product.price | currency: 'R$' }}</h3>
+                <button class="btn btn-success" ng-click="vm.addItemToCart(product)"><i class="fa fa-shopping-cart"></i> ADICIONAR</button>
+            </div>
+        </div>
+    </div>
+</div>

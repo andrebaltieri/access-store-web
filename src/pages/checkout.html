@@ -1,0 +1,7 @@
+<div class="container text-center">
+    <h1>CHECKOUT</h1>
+    <p>Deseja finalizar seu pedido?</p>
+
+    <h2>{{ vm.total | currency: 'R$' }}</h2>
+    <button class="btn btn-success btn-lg" ng-click="vm.submit()" data-loading-text="Aguarde..." id="btn-submit">FINALIZAR PEDIDO</button>
+</div>
